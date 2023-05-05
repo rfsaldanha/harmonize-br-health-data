@@ -1,0 +1,63 @@
+---
+title: "Indicators to parquet files"
+author: "Raphael Saldanha"
+date: "2023-05-05"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Packages
+
+```{r}
+library(bilis)
+```
+
+## Export selected indicators
+
+### Year aggregation
+
+```{r}
+dest <- "parquet_files/year"
+
+expand_indi_parquet(
+  agg = c("mun_res", "regsaude_res", "uf_res"), 
+  agg_time = "year", 
+  anos = 2010:2020, 
+  dir = dest, 
+  indi = "indi_0014"
+)
+```
+
+
+### Month aggregation
+
+```{r}
+dest <- "parquet_files/month"
+
+expand_indi_parquet(
+  agg = c("mun_res", "regsaude_res", "uf_res"), 
+  agg_time = "month", 
+  anos = 2010:2020, 
+  dir = dest, 
+  indi = "indi_0014"
+)
+```
+
+
+### Week aggregation
+
+```{r}
+dest <- "parquet_files/week"
+
+expand_indi_parquet(
+  agg = c("mun_res", "regsaude_res", "uf_res"), 
+  agg_time = "week", 
+  anos = 2010:2020, 
+  dir = dest, 
+  indi = "indi_0014"
+)
+```
+
